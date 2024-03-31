@@ -49,7 +49,8 @@ async function getBookList(id: string) {
   const res = await fetch(
     `https://books-api.nomadcoders.workers.dev/list?name=${id}`
   );
-  return res.json();
+  const json = res.json();
+  return json;
 }
 
 export default async function ListPage({

@@ -21,8 +21,8 @@ export default async function HomePage() {
       </div>
       <div className={styles.boxContainer}>
         {bestSeller.results.map((book, index) => (
-          <div className={styles.box}>
-            <li key={index}>
+          <div className={styles.box} key={index}>
+            <li>
               <Link href={`/list/${book.list_name_encoded}`}>
                 {book.list_name} &rarr;
               </Link>
