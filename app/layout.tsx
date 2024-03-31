@@ -3,10 +3,10 @@ import Navigation from "../components/navigation";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Next Movies",
-    default: "Next Movies",
+    template: "%s | The New York Times",
+    default: "The New York Times",
   },
-  description: "The best movies on the best framework",
+  description: "The New York Times",
 };
 
 export default function RootLayout({

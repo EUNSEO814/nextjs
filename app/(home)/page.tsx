@@ -1,29 +1,32 @@
 import Link from "next/link";
-import { resolve } from "path";
 
 export const metadata = {
   title: "Home",
 };
 
-export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+export const API_URL = "https://books-api.nomadcoders.workers.dev/lists";
 
-async function getMovies() {
-  // await new Promise((resolve) => setTimeout(resolve, 5000)); //loading 확인용
+async function getList() {
   const res = await fetch(API_URL);
   const json = await res.json();
   return json;
 }
 
 export default async function HomePage() {
-  const movies = await getMovies();
+  const bestSeller = await getList();
 
   return (
-    <div>
-      {movies.map((movie) => (
-        <li key={movie.id}>
-          <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-        </li>
-      ))}
-    </div>
+    <>
+      <h1>test</h1>
+      <div>
+        {bestSeller.results.map((book, index) => (
+          <li key={index}>
+            <Link href={`/list/${book.list_name_encoded}`}>
+              {book.list_name}
+            </Link>
+          </li>
+        ))}
+      </div>
+    </>
   );
 }

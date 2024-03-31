@@ -9,11 +9,10 @@ export default function Navigation() {
     <nav>
       <ul>
         <li>
-          <Link href="/">Home</Link> {path === "/" ? "!" : ""}
+          <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/about-us">About Us</Link>
-          {path === "/about-us" ? "!!" : ""}
+          <Link href="/about">About</Link>
         </li>
       </ul>
     </nav>
