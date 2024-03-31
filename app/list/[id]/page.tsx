@@ -1,3 +1,4 @@
+import { SECOND_API_URL } from "../../constants";
 import styles from "../../styles/detail.module.css";
 
 interface BookListProps {
@@ -46,9 +47,7 @@ interface Isbn {
 }
 
 async function getBookList(id: string) {
-  const res = await fetch(
-    `https://books-api.nomadcoders.workers.dev/list?name=${id}`
-  );
+  const res = await fetch(`${SECOND_API_URL}${id}`);
   const json = res.json();
   return json;
 }
