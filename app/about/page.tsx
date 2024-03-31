@@ -1,9 +1,11 @@
+import styles from "../styles/about.module.css";
+
 export const metadata = {
   title: "About",
 };
 export default async function AboutPage() {
   return (
-    <div>
+    <div className={styles.container}>
       <h1>ABOUT US</h1>
       <p>
         Welcome to the official explorer for The New York Times Best Seller list

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Navigation from "../components/navigation";
-
+import Navigation from "./components/navigation";
+import "./styles/global.css";
 export const metadata: Metadata = {
   title: {
     template: "%s | The New York Times",

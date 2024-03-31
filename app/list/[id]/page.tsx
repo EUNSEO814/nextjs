@@ -1,3 +1,5 @@
+import styles from "../../styles/detail.module.css";
+
 interface BookListProps {
   params: {
     id: string;
@@ -54,22 +56,27 @@ export default async function ListPage({
   params,
   searchParams: {},
 }: BookListProps) {
-  console.log("params", params.id);
   const bookList = await getBookList(params.id);
-  console.log("bookList", bookList);
 
   return (
-    <div>
-      <h1>List Page</h1>
-      <p>Path Parameter: {bookList.results.list_name} </p>
-      {bookList["results"]["books"].map((book: Book) => (
-        <div key={book.primary_isbn13}>
-          <img src={book.book_image} alt={book.title} />
-          <h2>{book.title}</h2>
-          <h3>{book.author}</h3>
-          <a href={book.amazon_product_url}>구매하기</a>
-        </div>
-      ))}
+    <div className={styles.container}>
+      <h1 className={styles.title}>{bookList.results.list_name}</h1>
+      <div className={styles.cardContainer}>
+        {bookList["results"]["books"].map((book: Book) => (
+          <div key={book.primary_isbn13} className={styles.card}>
+            <img
+              className={styles.img}
+              src={book.book_image}
+              alt={book.title}
+            />
+            <h2 className={styles.bookTitle}>{book.title}</h2>
+            <h3 className={styles.author}>{book.author}</h3>
+            <a className={styles.bookLink} href={book.amazon_product_url}>
+              Buy now &rarr;
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
